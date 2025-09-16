@@ -35,6 +35,13 @@ async function run() {
       const user = await database.findOne(quary);
       res.send(user);
     });
+    app.delete("/Product/:id", async (req, res) => {
+      const id = req.params.id;
+      const quary = { _id: new ObjectId(id) };
+      const result = await database.deleteOne(quary);
+      res.send(result);
+      console.log(id);
+    });
     app.post("/products", async (req, res) => {
       const product = req.body;
       const result = await database.insertOne(product);
