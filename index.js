@@ -58,7 +58,7 @@ async function run() {
 }
 run().catch(console.dir);
 
-// routes
+// route
 app.get("/", (req, res) => {
   res.send("Api is working...");
 });
