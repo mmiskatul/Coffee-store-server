@@ -29,6 +29,12 @@ async function run() {
       const result = await cursor.toArray();
       res.send(result);
     });
+    app.get("/product/:id", async (req, res) => {
+       const id = req.params.id;
+      const quary = { _id: new ObjectId(id) };
+      const user = await database.findOne(quary);
+      res.send(user);
+    });
     app.post("/products", async (req, res) => {
       const product = req.body;
       const result = await database.insertOne(product);
